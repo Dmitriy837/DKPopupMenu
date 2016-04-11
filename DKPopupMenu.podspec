@@ -21,11 +21,11 @@ A fast and simple way to add Android-like looking popup menu anywhere in a proje
 Optionally, any nib file can be used to present menu cell's content.
                        DESC
 
-  s.homepage         = "https://github.com/Dmytro837/DKPopupMenu"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/Dmitriy837/DKPopupMenu"
+  s.screenshots      = "https://raw.githubusercontent.com/Dmitriy837/DKPopupMenu/master/Demo/simple.jpg"
   s.license          = 'MIT'
   s.author           = { "DmytroKovryhin" => "agnostic.88@yandex.ua" }
-  s.source           = { :git => "https://github.com/Dmytro837/DKPopupMenu.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/Dmitriy837/DKPopupMenu.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/DmitriyKovrihin'
 
   s.platform     = :ios, '8.0'
