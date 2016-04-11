@@ -1,0 +1,14 @@
+PODS:
+  - DKPopupMenu (0.1.0)
+
+DEPENDENCIES:
+  - DKPopupMenu (from `../`)
+
+EXTERNAL SOURCES:
+  DKPopupMenu:
+    :path: ../
+
+SPEC CHECKSUMS:
+  DKPopupMenu: 3e2d6f40f9a5bc0d1f6cd51406926776c3720bb6
+
+COCOAPODS: 0.39.0

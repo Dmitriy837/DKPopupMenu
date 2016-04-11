@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'DKPopupMenu_Example', :exclusive => true do
+  pod 'DKPopupMenu', :path => '../'
+end
+
+target 'DKPopupMenu_Tests', :exclusive => true do
+  pod 'DKPopupMenu', :path => '../'
+
+  
+end
