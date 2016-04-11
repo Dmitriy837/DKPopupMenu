@@ -1,8 +1,11 @@
 # DKPopupMenu
 
 A fast and simple way to add Android-like looking popup menu anywhere in a project with API similar to UIAlertController, but simpler :)
+
 ![](Demo/simple.jpg)
-Optionally, any nib file can be used to present menu cell's content.
+
+Optionally, a nib file can be used to present menu cell's content.
+
 ![](Demo/custom.jpg)
 
 [![CI Status](http://img.shields.io/travis/DmytroKovryhin/DKPopupMenu.svg?style=flat)](https://travis-ci.org/DmytroKovryhin/DKPopupMenu)
@@ -13,8 +16,6 @@ Optionally, any nib file can be used to present menu cell's content.
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
 
 ## Installation
 
