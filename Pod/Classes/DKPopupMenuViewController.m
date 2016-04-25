@@ -70,6 +70,7 @@ static DKPopupMenuViewController *instance;
 {
     [UIView animateWithDuration:0.25 animations:^{
         self.pseudoBackground.alpha = 0.1;
+        self.customBackgroundView.alpha = 0.1;
         self.tableViewBottomConstraint.constant = - self.tableViewHeightConstraint.constant;
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -83,9 +84,14 @@ static DKPopupMenuViewController *instance;
     [super viewDidAppear:animated];
     self.tableViewHeightConstraint.constant = self.actions.count * self.cellHeight;
     self.tableViewBottomConstraint.constant = - self.tableViewHeightConstraint.constant;
+    if (self.customBackgroundView) {
+        [self.pseudoBackground removeFromSuperview];
+    }
+    
     [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.25 animations:^{
         self.pseudoBackground.alpha = 0.7;
+        self.customBackgroundView.alpha = 1.0;
         self.tableViewBottomConstraint.constant = 0.0f;
         [self.view layoutIfNeeded];
     }];
@@ -98,6 +104,17 @@ static DKPopupMenuViewController *instance;
         _cellHeight = DKDefaultCellHeight;
     }
     return _cellHeight;
+}
+
+- (void)setCustomBackgroundView:(UIView *)customBackgroundView
+{
+    _customBackgroundView = customBackgroundView;
+    customBackgroundView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:customBackgroundView];
+    customBackgroundView.alpha = 0.0;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[customBackgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(customBackgroundView)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[customBackgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(customBackgroundView)]];
+    [self.view sendSubviewToBack:customBackgroundView];
 }
 
 #pragma mark - Add actions
