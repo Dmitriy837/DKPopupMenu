@@ -19,9 +19,9 @@
 - (IBAction)showSimpleMenu
 {
     DKPopupMenuViewController *menu = [DKPopupMenuViewController new];
-    UIView *backgroundView = [UIView new];
-    backgroundView.backgroundColor = [UIColor redColor];
-    [menu setCustomBackgroundView:backgroundView];
+    UIView *background = [UIView new];
+    background.backgroundColor = [UIColor colorWithRed:0.2 green:0.5 blue:0.8 alpha:0.5];
+    [menu setCustomBackgroundView:background];
     [menu addActionWithTitle:@"Boring title 1" ofType:DKActionTypeNormal handler:^{
         NSLog(@"Boring title 1 has been chosen");
     }];

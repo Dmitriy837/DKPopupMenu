@@ -18,6 +18,7 @@
 @property (nonatomic, weak)IBOutlet UIView *pseudoBackground;
 @property (nonatomic, weak)IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 @property (nonatomic, weak)IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
+@property (nonatomic, weak) UIView *customBackgroundView;
 @end
 
 static DKPopupMenuViewController *instance;

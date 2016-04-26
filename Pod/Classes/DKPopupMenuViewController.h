@@ -11,7 +11,7 @@
 
 @interface DKPopupMenuViewController : UIViewController
 @property (nonatomic, assign) CGFloat cellHeight;
-@property (nonatomic, weak) UIView *customBackgroundView;
+- (void)setCustomBackgroundView:(UIView *)customBackgroundView;
 
 //The simplest case
 - (void)addActionWithTitle:(NSString*)title ofType:(DKActionType)type handler:(actionBlock)actionBlock;
