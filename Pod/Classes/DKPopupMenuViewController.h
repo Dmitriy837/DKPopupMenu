@@ -16,6 +16,7 @@
 //The simplest case
 - (void)addActionWithTitle:(NSString*)title ofType:(DKActionType)type handler:(actionBlock)actionBlock;
 - (void)show;
+- (void)hideMenu;
 
 //The most general case
 - (void)addAction:(id<DKCallablePopupAction>)action;
