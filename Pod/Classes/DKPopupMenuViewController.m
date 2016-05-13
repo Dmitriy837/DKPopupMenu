@@ -48,23 +48,18 @@ static DKPopupMenuViewController *instance;
     NSDictionary *viewsDictionary = @{@"view":self.view};
     [[UIApplication sharedApplication].keyWindow addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:viewsDictionary]];
     [[UIApplication sharedApplication].keyWindow addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:viewsDictionary]];
-}
-
-- (void)showUsingCellNib:(UINib*)_cellNib
-{
-    cellNib = _cellNib;
-    [self show];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
     if (cellNib)
     {
         [self.tableView registerNib:cellNib forCellReuseIdentifier:DKCustomCellReuseIdentifier];
         UITableViewCell *cell = [[cellNib instantiateWithOwner:nil options:nil] firstObject];
         self.cellHeight = cell.bounds.size.height;
     }
+}
+
+- (void)showUsingCellNib:(UINib*)_cellNib
+{
+    cellNib = _cellNib;
+    [self show];
 }
 
 - (void)hideMenu
