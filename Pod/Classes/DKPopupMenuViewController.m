@@ -78,7 +78,7 @@ static DKPopupMenuViewController *instance;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.tableViewHeightConstraint.constant = self.actions.count * self.cellHeight;
+    self.tableViewHeightConstraint.constant = self.actions.count * self.cellHeight + self.headerView.bounds.size.height;
     self.tableViewBottomConstraint.constant = - self.tableViewHeightConstraint.constant;
     if (self.customBackgroundView) {
         [self.pseudoBackground removeFromSuperview];
@@ -111,6 +111,17 @@ static DKPopupMenuViewController *instance;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[customBackgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(customBackgroundView)]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[customBackgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(customBackgroundView)]];
     [self.view sendSubviewToBack:customBackgroundView];
+}
+
+- (void)setHeaderView:(UIView *)headerView
+{
+    [headerView layoutIfNeeded];
+    CGFloat height = [headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGRect frame = headerView.frame;
+    frame.size.height = height;
+    headerView.frame = frame;
+    _headerView = headerView;
+    self.tableView.tableHeaderView = headerView;
 }
 
 #pragma mark - Add actions

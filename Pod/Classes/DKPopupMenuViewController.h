@@ -10,6 +10,7 @@
 #import "DKPopupAction.h"
 
 @interface DKPopupMenuViewController : UIViewController
+@property (nonatomic, weak) UIView *headerView;
 @property (nonatomic, assign) CGFloat cellHeight;
 - (void)setCustomBackgroundView:(UIView *)customBackgroundView;
 

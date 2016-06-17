@@ -32,6 +32,8 @@
         NSLog(@"Boring title 3 has been chosen");
     }];
     [menu addActionWithTitle:@"Cancel" ofType:DKActionTypeCancel handler:nil];
+    UIView *headerView = [self headerView];
+    menu.headerView = headerView;
     [menu show];
 }
 
@@ -49,6 +51,21 @@
     }];
     [menu addActionWithTitle:@"Cancel" icon:nil handler:nil];
     [menu showUsingCellNib:[UINib nibWithNibName:@"DKTableViewCellWithAction" bundle:nil]];
+}
+
+- (UIView*)headerView
+{
+    UIView *headerView = [UIView new];
+    UILabel *headerContentView = [UILabel new];
+    headerContentView.translatesAutoresizingMaskIntoConstraints = NO;
+    [headerView addSubview:headerContentView];
+    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[headerContentView]-10@999-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(headerContentView)]];
+    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[headerContentView]-10@999-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(headerContentView)]];
+    headerContentView.text = @"Hola!\nAmigos!";
+    headerContentView.lineBreakMode = NSLineBreakByWordWrapping;
+    headerContentView.numberOfLines = 0;
+    headerView.backgroundColor = [UIColor yellowColor];
+    return headerView;
 }
 
 @end
