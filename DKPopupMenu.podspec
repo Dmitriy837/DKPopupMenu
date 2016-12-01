@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
 A fast and simple way to add Android-like looking popup menu anywhere in a project with API similar to UIAlertController, but simpler :)
+It is now possible to set custom background view to customize color and handle gestures.
 Optionally, any nib file can be used to present menu cell's content.
                        DESC
 

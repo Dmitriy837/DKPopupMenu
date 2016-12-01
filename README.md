@@ -1,6 +1,7 @@
 # DKPopupMenu
 
 A fast and simple way to add Android-like looking popup menu anywhere in a project with API similar to UIAlertController, but simpler :)
+It is now possible to set custom background view to customize color and handle gestures.
 
 ![](Demo/simple.jpg)
 
