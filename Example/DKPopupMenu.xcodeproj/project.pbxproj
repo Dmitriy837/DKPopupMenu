@@ -12,6 +12,7 @@
 		051BAA9F1CB4542600DABF5D /* elephant.png in Resources */ = {isa = PBXBuildFile; fileRef = 051BAA9C1CB4542600DABF5D /* elephant.png */; };
 		051BAAA01CB4542600DABF5D /* hippopotamus.png in Resources */ = {isa = PBXBuildFile; fileRef = 051BAA9D1CB4542600DABF5D /* hippopotamus.png */; };
 		051BAAA11CB4542600DABF5D /* panda.png in Resources */ = {isa = PBXBuildFile; fileRef = 051BAA9E1CB4542600DABF5D /* panda.png */; };
+		058439ED1DEFF3E800CAD58C /* DKMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 058439EC1DEFF3E800CAD58C /* DKMenuHeaderView.m */; };
 		36B8DF1AD5C1883E1A25534B /* Pods_DKPopupMenu_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1679BA90A049B18B2FC381 /* Pods_DKPopupMenu_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -47,6 +48,8 @@
 		051BAA9C1CB4542600DABF5D /* elephant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = elephant.png; path = CustomCellWithAction/elephant.png; sourceTree = "<group>"; };
 		051BAA9D1CB4542600DABF5D /* hippopotamus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hippopotamus.png; path = CustomCellWithAction/hippopotamus.png; sourceTree = "<group>"; };
 		051BAA9E1CB4542600DABF5D /* panda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panda.png; path = CustomCellWithAction/panda.png; sourceTree = "<group>"; };
+		058439EB1DEFF3E800CAD58C /* DKMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKMenuHeaderView.h; sourceTree = "<group>"; };
+		058439EC1DEFF3E800CAD58C /* DKMenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKMenuHeaderView.m; sourceTree = "<group>"; };
 		2A16703CE48F27A532C05606 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3ACB471863726F89C11DC55A /* Pods_DKPopupMenu_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DKPopupMenu_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4271DDBB65C2D23D05DDA24C /* Pods-DKPopupMenu_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DKPopupMenu_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DKPopupMenu_Tests/Pods-DKPopupMenu_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				6003F5A6195388D20070C39A /* DKViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				058439EB1DEFF3E800CAD58C /* DKMenuHeaderView.h */,
+				058439EC1DEFF3E800CAD58C /* DKMenuHeaderView.m */,
 			);
 			name = "Example for DKPopupMenu";
 			path = DKPopupMenu;
@@ -432,6 +437,7 @@
 			files = (
 				6003F59E195388D20070C39A /* DKAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* DKViewController.m in Sources */,
+				058439ED1DEFF3E800CAD58C /* DKMenuHeaderView.m in Sources */,
 				051BAA991CB44FC300DABF5D /* DKTableViewCellWithAction.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

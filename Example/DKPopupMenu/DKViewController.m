@@ -9,6 +9,7 @@
 #import "DKViewController.h"
 #import <DKPopupMenu/DKPopupMenuViewController.h>
 #import "DKTableViewCellWithAction.h"
+#import "DKMenuHeaderView.h"
 
 @interface DKViewController ()
 
@@ -20,7 +21,9 @@
 {
     DKPopupMenuViewController *menu = [DKPopupMenuViewController new];
     UIView *background = [UIView new];
-    background.backgroundColor = [UIColor colorWithRed:0.2 green:0.5 blue:0.8 alpha:0.5];
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:menu action:@selector(hideMenu)];
+    [background addGestureRecognizer:tgr];
+    background.backgroundColor = [UIColor colorWithRed:0.3 green:0.45 blue:0.3 alpha:0.3];
     [menu setCustomBackgroundView:background];
     [menu addActionWithTitle:@"Boring title 1" ofType:DKActionTypeNormal handler:^{
         NSLog(@"Boring title 1 has been chosen");
@@ -32,7 +35,8 @@
         NSLog(@"Boring title 3 has been chosen");
     }];
     [menu addActionWithTitle:@"Cancel" ofType:DKActionTypeCancel handler:nil];
-    UIView *headerView = [self headerView];
+    DKMenuHeaderView *headerView = [DKMenuHeaderView new];
+    [headerView setTitle:@"You can now tap above the menu \nto hide it"];
     menu.headerView = headerView;
     [menu show];
 }
@@ -51,21 +55,6 @@
     }];
     [menu addActionWithTitle:@"Cancel" icon:nil handler:nil];
     [menu showUsingCellNib:[UINib nibWithNibName:@"DKTableViewCellWithAction" bundle:nil]];
-}
-
-- (UIView*)headerView
-{
-    UIView *headerView = [UIView new];
-    UILabel *headerContentView = [UILabel new];
-    headerContentView.translatesAutoresizingMaskIntoConstraints = NO;
-    [headerView addSubview:headerContentView];
-    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[headerContentView]-10@999-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(headerContentView)]];
-    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[headerContentView]-10@999-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(headerContentView)]];
-    headerContentView.text = @"Hola!\nAmigos!";
-    headerContentView.lineBreakMode = NSLineBreakByWordWrapping;
-    headerContentView.numberOfLines = 0;
-    headerView.backgroundColor = [UIColor yellowColor];
-    return headerView;
 }
 
 @end
