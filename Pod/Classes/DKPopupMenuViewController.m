@@ -19,6 +19,7 @@
 @property (nonatomic, weak)IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 @property (nonatomic, weak)IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
 @property (nonatomic, weak) UIView *customBackgroundView;
+@property (nonatomic, strong) UIColor *menuBackgroundColor;
 @end
 
 static DKPopupMenuViewController *instance;
@@ -54,6 +55,13 @@ static DKPopupMenuViewController *instance;
         UITableViewCell *cell = [[cellNib instantiateWithOwner:nil options:nil] firstObject];
         self.cellHeight = cell.bounds.size.height;
     }
+    self.tableView.tableHeaderView = self.headerView;
+    self.tableView.backgroundColor = self.menuBackgroundColor;
+    self.tableView.superview.backgroundColor = self.menuBackgroundColor;
+    self.tableView.estimatedRowHeight = 60.0f;
+    
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideMenu)];
+    [self.pseudoBackground addGestureRecognizer:tgr];
 }
 
 - (void)showUsingCellNib:(UINib*)_cellNib
@@ -78,7 +86,7 @@ static DKPopupMenuViewController *instance;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.tableViewHeightConstraint.constant = self.actions.count * self.cellHeight + self.headerView.bounds.size.height;
+    self.tableViewHeightConstraint.constant = self.tableView.contentSize.height;
     self.tableViewBottomConstraint.constant = - self.tableViewHeightConstraint.constant;
     if (self.customBackgroundView) {
         [self.pseudoBackground removeFromSuperview];
@@ -121,7 +129,7 @@ static DKPopupMenuViewController *instance;
     frame.size.height = height;
     headerView.frame = frame;
     _headerView = headerView;
-    self.tableView.tableHeaderView = headerView;
+    self.tableView.tableHeaderView = self.headerView;
 }
 
 #pragma mark - Add actions
@@ -165,11 +173,12 @@ static DKPopupMenuViewController *instance;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.cellHeight;
+    return UITableViewAutomaticDimension;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     id<DKCallablePopupAction> action = self.actions[indexPath.row];
     [self hideMenu];
     if (action.handlerBlock)
